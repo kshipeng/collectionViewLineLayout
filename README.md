@@ -1,2 +1,2 @@
 # collectionViewLineLayout
-collectionView流布局(还没完成)
+collectionView流布局(完善中)
