@@ -22,6 +22,3 @@
 
 @end
 
-@interface MyFlowLayout : UICollectionViewFlowLayout
-
-@end

@@ -23,6 +23,7 @@
 		3D32D5411DF0202D00C250CE /* photo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D32D53B1DF0202D00C250CE /* photo@3x.png */; };
 		3D32D5421DF0202D00C250CE /* home_backView@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D32D53C1DF0202D00C250CE /* home_backView@3x.png */; };
 		3D32D5431DF0202D00C250CE /* home_backView@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D32D53D1DF0202D00C250CE /* home_backView@2x.png */; };
+		3D32D5531DF10FFC00C250CE /* SPCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D32D5521DF10FFC00C250CE /* SPCollectionViewFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,8 @@
 		3D32D53B1DF0202D00C250CE /* photo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo@3x.png"; sourceTree = "<group>"; };
 		3D32D53C1DF0202D00C250CE /* home_backView@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_backView@3x.png"; sourceTree = "<group>"; };
 		3D32D53D1DF0202D00C250CE /* home_backView@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_backView@2x.png"; sourceTree = "<group>"; };
+		3D32D5511DF10FFC00C250CE /* SPCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		3D32D5521DF10FFC00C250CE /* SPCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,8 @@
 		3D32D5501DF0229700C250CE /* SPCollectionFlowLayout */ = {
 			isa = PBXGroup;
 			children = (
+				3D32D5511DF10FFC00C250CE /* SPCollectionViewFlowLayout.h */,
+				3D32D5521DF10FFC00C250CE /* SPCollectionViewFlowLayout.m */,
 			);
 			name = SPCollectionFlowLayout;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 				3D32D51F1DF01F8100C250CE /* ViewController.m in Sources */,
 				3D32D51C1DF01F8100C250CE /* AppDelegate.m in Sources */,
 				3D32D5191DF01F8100C250CE /* main.m in Sources */,
+				3D32D5531DF10FFC00C250CE /* SPCollectionViewFlowLayout.m in Sources */,
 				3D32D5321DF01FD700C250CE /* ChosenTableViewCell.m in Sources */,
 				3D32D5371DF01FE200C250CE /* Model.m in Sources */,
 			);
@@ -390,6 +396,7 @@
 				3D32D52D1DF01F8100C250CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

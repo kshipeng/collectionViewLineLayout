@@ -8,12 +8,12 @@
 
 #import "ChosenTableViewCell.h"
 #import "Model.h"
-
+#import "SPCollectionViewFlowLayout.h"
 @interface ChosenTableViewCell ()<UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *allButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *chosenCollectionView;
-@property (nonatomic, retain) MyFlowLayout *flowLayout;
+@property (nonatomic, retain) SPCollectionViewFlowLayout *flowLayout;
 @property (nonatomic, copy) void(^select)(NSIndexPath *indexPath);
 @property (nonatomic, copy) void(^buttonAction)();
 @end
@@ -31,7 +31,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    _flowLayout = [[MyFlowLayout alloc]init];
+    _flowLayout = [[SPCollectionViewFlowLayout alloc]init];
     _flowLayout.minimumLineSpacing = 0.;
     _flowLayout.minimumInteritemSpacing = 0.;
     _flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -101,45 +101,4 @@
 
 @end
 
-@implementation MyFlowLayout
-- (instancetype) init {
-    if (self = [super init]) {
-    }
-    return self;
-}
-/**
- * 用来做布局的初始化操作（不建议在init方法中进行布局的初始化操作）
- */
-- (void)prepareLayout {
-    [super prepareLayout];
-    
-    // 设置CollectionView滚动为水平滚动
-    self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-}
 
-- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity {
-    CGFloat offsetAdjustment = MAXFLOAT;
-    ////  |-------[-------]-------|
-    ////  |滑动偏移|可视区域 |剩余区域|
-    //是整个collectionView在滑动偏移后的当前可见区域的中点
-    CGFloat centerX = proposedContentOffset.x + (CGRectGetWidth(self.collectionView.bounds) / 2.0);
-    //    CGFloat centerX = self.collectionView.center.x; //这个中点始终是屏幕中点
-    //所以这里对collectionView的具体尺寸不太理解，输出的是屏幕大小，但实际上宽度肯定超出屏幕的
-    
-    CGRect targetRect = CGRectMake(proposedContentOffset.x, 0.0, self.collectionView.bounds.size.width, self.collectionView.bounds.size.height);
-    
-    NSArray *array = [super layoutAttributesForElementsInRect:targetRect];
-    
-    for (UICollectionViewLayoutAttributes *layoutAttr in array) {
-        CGFloat itemCenterX = layoutAttr.center.x;
-        
-        if (ABS(itemCenterX - centerX) < ABS(offsetAdjustment)) { // 找出最小的offset 也就是最中间的item 偏移量
-            offsetAdjustment = itemCenterX - centerX;
-        }
-        
-    }
-    
-    return CGPointMake(proposedContentOffset.x + offsetAdjustment + 10, proposedContentOffset.y);
-}
-
-@end
