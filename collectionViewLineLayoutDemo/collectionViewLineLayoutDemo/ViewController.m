@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _dataSource = [NSMutableArray array];
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 5; i++) {
         [_dataSource addObject:[[Model alloc]init]];
     }
     _table = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
